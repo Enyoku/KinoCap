@@ -1,6 +1,24 @@
 <resources>
     <string name="app_name">KinoCap</string>
     <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
+    <string name="title_category">Category</string>
+    <string name="title_favorite">Favorite</string>
+    <string name="title_user">User</string>
+    <string name="home_search_field_hint">Film…</string>
+    <string name="movie_of_the_day">Movie of the day</string>
+    <string name="premiere">Premiere</string>
+    <string name="top_250_films">Top 250 films</string>
+    <string name="choose_a_genre">Choose a genre</string>
+    <string name="anime">Anime</string>
+    <string name="action">Action</string>
+    <string name="war">War Films</string>
+    <string name="detective">Detective</string>
+    <string name="drama">Drama</string>
+    <string name="history">History</string>
+    <string name="comedy">Comedy</string>
+    <string name="short_film">Short films</string>
+    <string name="cartoon">Cartoon</string>
+    <string name="thriller">Thriller</string>
+    <string name="horror">Horror</string>
+    <string name="fiction">Fiction</string>
 </resources>

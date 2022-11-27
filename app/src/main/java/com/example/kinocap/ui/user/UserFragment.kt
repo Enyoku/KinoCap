@@ -6,11 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
-import com.example.kinocap.R
-import com.example.kinocap.databinding.FragmentHomeBinding
 import com.example.kinocap.databinding.FragmentUserBinding
-import com.example.kinocap.ui.home.HomeViewModel
 
 class UserFragment : Fragment() {
 

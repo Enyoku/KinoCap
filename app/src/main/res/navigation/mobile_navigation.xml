@@ -12,16 +12,16 @@
         tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/navigation_dashboard"
-        android:name="com.example.kinocap.ui.category.DashboardFragment"
-        android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        android:id="@+id/navigation_category"
+        android:name="com.example.kinocap.ui.category.CategoryFragment"
+        android:label="@string/title_category"
+        tools:layout="@layout/fragment_category" />
 
     <fragment
-        android:id="@+id/navigation_notifications"
-        android:name="com.example.kinocap.ui.favorite.NotificationsFragment"
-        android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_notifications" />
+        android:id="@+id/navigation_favorite"
+        android:name="com.example.kinocap.ui.favorite.FavoriteFragment"
+        android:label="@string/title_favorite"
+        tools:layout="@layout/fragment_favorite" />
     <fragment
         android:id="@+id/navigation_user"
         android:name="com.example.kinocap.ui.user.UserFragment"
