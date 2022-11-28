@@ -45,7 +45,7 @@ class HomeFragment : Fragment() {
             rcViewTop250Films.adapter = adapterPremierFilms
         }
 
-        val premFilm = Film(3, "Film", R.drawable.star)
+        val premFilm = Film(3, "Film", R.drawable.anime_genre)
         for (i in 1..5){
             adapterPremierFilms.addFilm(premFilm)
             adapterTopFilms.addFilm(premFilm)

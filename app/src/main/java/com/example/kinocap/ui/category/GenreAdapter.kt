@@ -3,7 +3,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.kinocap.Film
 import com.example.kinocap.Genre
 import com.example.kinocap.R
 import com.example.kinocap.databinding.GenreItemBinding
@@ -13,7 +12,7 @@ class GenreAdapter: RecyclerView.Adapter<GenreAdapter.VH>() {
     class VH(item: View): RecyclerView.ViewHolder(item)  {
         val binding = GenreItemBinding.bind(item)
         fun bind(genre: Genre){
-            binding.genreImage.setImageResource(R.id.genreImage)
+            binding.genreImage.setImageResource(genre.image_id)
             binding.genreText.text = genre.title
         }
     }

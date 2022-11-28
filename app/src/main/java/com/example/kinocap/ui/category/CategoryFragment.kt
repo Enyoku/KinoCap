@@ -38,8 +38,8 @@ class CategoryFragment : Fragment() {
             rcViewGenres.layoutManager = GridLayoutManager(this@CategoryFragment.context, 3)
         }
 
-        val genre = Genre(3, "Film", R.drawable.capybara_icon)
-        for (i in 1..5){
+        val genre = Genre(3, "Film", R.drawable.anime_genre)
+        for (i in 1..6){
             adapterGenre.addGenre(genre)
             adapterGenre.addGenre(genre)
         }
