@@ -47,4 +47,6 @@ class CategoryFragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
+
+
 }
