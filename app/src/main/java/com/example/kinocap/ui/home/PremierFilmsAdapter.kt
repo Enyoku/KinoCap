@@ -1,38 +1,50 @@
 package com.example.kinocap.ui.home
+
+import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
+import android.widget.TextView
+import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.kinocap.Film
+import com.example.kinocap.FilmInfo
 import com.example.kinocap.R
-import com.example.kinocap.databinding.FilmItemBinding
 
-class PremierFilmsAdapter: RecyclerView.Adapter<PremierFilmsAdapter.PremierFilmHolder>() {
-    val filmList = ArrayList<Film>()
+class PremierFilmsAdapter(val context: Context, val film: Film): RecyclerView.Adapter<PremierFilmsAdapter.PremierFilmHolder>() {
     class PremierFilmHolder(item: View): RecyclerView.ViewHolder(item) {
-        val binding = FilmItemBinding.bind(item)
-        fun bind(film: Film){
-            binding.filmImage.setImageResource(film.image_id)
-            binding.filmName.text = film.film_name
+        val card: CardView = item.findViewById(R.id.filmCard)
+        val filmImage: ImageView = item.findViewById(R.id.filmImage)
+        val filmName: TextView = item.findViewById(R.id.filmName)
+
+        init {
+            this.card.setOnClickListener {
+                val intent = Intent(item.context, FilmInfo::class.java)
+                item.context.startActivity(intent)
+            }
         }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PremierFilmHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.film_item,
+        val view = LayoutInflater.from(context).inflate(R.layout.film_item,
         parent, false)
         return PremierFilmHolder(view)
     }
 
     override fun onBindViewHolder(holder: PremierFilmHolder, position: Int) {
-        holder.bind(filmList[position])
+        Glide.with(context).load(film.data[position].image_url_preview).into(holder.filmImage)
+        holder.filmName.setText(film.data[position].film_name_ru)
     }
 
     override fun getItemCount(): Int {
-        return filmList.size
+        return film.data.size
     }
-
-    fun addFilm(film: Film){
-        filmList.add(film)
-        notifyDataSetChanged()
-    }
+//
+//    fun addFilm(film: Film){
+//        film.data.add(film)
+//        notifyDataSetChanged()
+//    }
 }

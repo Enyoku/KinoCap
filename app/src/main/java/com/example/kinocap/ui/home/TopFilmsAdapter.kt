@@ -12,8 +12,8 @@ class TopFilmsAdapter: RecyclerView.Adapter<TopFilmsAdapter.TopFilmsHolder>() {
     class TopFilmsHolder(item: View): RecyclerView.ViewHolder(item) {
         val binding = FilmItemBinding.bind(item)
         fun bind(film: Film){
-            binding.filmImage.setImageResource(film.image_id)
-            binding.filmName.text = film.film_name
+//            binding.filmImage.setImageResource(film.data.)
+//            binding.filmName.text = film.data.
         }
     }
 

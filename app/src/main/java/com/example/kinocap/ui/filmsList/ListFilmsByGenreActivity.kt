@@ -11,7 +11,7 @@ import com.example.kinocap.databinding.ActivityListFilmsByGenreBinding
 class ListFilmsByGenreActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityListFilmsByGenreBinding
-    val adapter = ListFilmsGenreAdapter()
+//    val adapter = ListFilmsGenreAdapter()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityListFilmsByGenreBinding.inflate(layoutInflater)
@@ -19,18 +19,12 @@ class ListFilmsByGenreActivity : AppCompatActivity() {
         val rcFilmsList: RecyclerView = binding.rcListFilmsByGenre
 
         binding.apply {
-            rcFilmsList.adapter = adapter
+//            rcFilmsList.adapter = ListFilmsGenreAdapter(this@ListFilmsByGenreActivity, Film())
             rcFilmsList.layoutManager = GridLayoutManager(this@ListFilmsByGenreActivity, 3)
         }
 
         binding.goCategoryBtn.setOnClickListener {
             finish()
-        }
-
-        val premFilm = Film(3, "Film", R.drawable.anime_genre)
-        for (i in 1..5){
-            adapter.addFilm(premFilm)
-            adapter.addFilm(premFilm)
         }
     }
 

@@ -36,7 +36,7 @@ class CategoryFragment : Fragment() {
         val rcViewGenres: RecyclerView = root.findViewById(R.id.rcViewGenres)
 
         binding.apply {
-            rcViewGenres.adapter = GenreAdapter(requireContext(), Genres().list)
+            rcViewGenres.adapter = GenreAdapter(requireContext(), Genres(root).list)
             rcViewGenres.layoutManager = GridLayoutManager(this@CategoryFragment.context, 3)
         }
 
