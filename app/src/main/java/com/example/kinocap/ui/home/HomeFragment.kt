@@ -21,7 +21,7 @@ import retrofit2.Response
 class HomeFragment : Fragment() {
 
     private var _binding: FragmentHomeBinding? = null
-    private val adapterTopFilms = TopFilmsAdapter()
+//    private val adapterTopFilms = TopFilmsAdapter()
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -38,11 +38,12 @@ class HomeFragment : Fragment() {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root: View = binding.root
         val rcViewPremier: RecyclerView = root.findViewById(R.id.rcViewPremiere)
+        val rcViewTop250Films: RecyclerView = root.findViewById(R.id.rcViewTop250Films)
 
         val films = MyRetrofit().getRetrofit()
         val api_ret = films.create(Api::class.java)
-        val films_call: retrofit2.Call<Film> = api_ret.getPremieres(2022,"OCTOBER")
-        films_call.enqueue(object : retrofit2.Callback<Film> {
+        val films_call_premiere: retrofit2.Call<Film> = api_ret.getPremieres(2022,"OCTOBER")
+        films_call_premiere.enqueue(object : retrofit2.Callback<Film> {
             override fun onResponse(call: Call<Film>, response: Response<Film>) {
                 if (response.isSuccessful){
                     rcViewPremier.adapter =
@@ -50,6 +51,21 @@ class HomeFragment : Fragment() {
                     Log.d("It","just work")
                 }
             }
+
+            override fun onFailure(call: Call<Film>, t: Throwable) {
+                Toast.makeText(this@HomeFragment.context, t.message, Toast.LENGTH_SHORT).show()
+            }
+        })
+
+        val films_call_top: retrofit2.Call<Film> = api_ret.getTop250Films()
+        films_call_top.enqueue(object : retrofit2.Callback<Film>{
+            override fun onResponse(call: Call<Film>, response: Response<Film>) {
+                if (response.isSuccessful){
+                    rcViewTop250Films.adapter =
+                        response.body()?.let {TopFilmsAdapter(requireContext(), it)}
+                    Log.d("It","just work")
+            }
+        }
 
             override fun onFailure(call: Call<Film>, t: Throwable) {
                 Toast.makeText(this@HomeFragment.context, t.message, Toast.LENGTH_SHORT).show()

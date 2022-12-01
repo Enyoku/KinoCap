@@ -23,6 +23,7 @@ class ListFilmsGenreAdapter(val context: Context, val films: Film): RecyclerView
         init {
             this.card.setOnClickListener {
                 val intent = Intent(item.context, FilmInfo::class.java)
+//                intent.putExtra("id", ) id фильма
                 item.context.startActivity(intent)
             }
         }
