@@ -23,4 +23,7 @@ interface Api {
     @GET("/api/v2.2/films/top")
     fun getTop250Films(@Query("type") type: String = "TOP_250_BEST_FILMS",
                        @Query("page") page: Int = 4):Call<Film>
+
+    @Headers("X-API-KEY: 0da2b04f-8117-4677-884a-8f2cc8ee1330")
+    fun getFilmListByGenre(@Query("genres") genres: Int):Call<Film>
 }
