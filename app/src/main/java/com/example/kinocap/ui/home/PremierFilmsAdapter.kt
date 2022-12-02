@@ -19,10 +19,12 @@ class PremierFilmsAdapter(val context: Context, val film: Film): RecyclerView.Ad
         val card: CardView = item.findViewById(R.id.filmCard)
         val filmImage: ImageView = item.findViewById(R.id.filmImage)
         val filmName: TextView = item.findViewById(R.id.filmName)
+        var id : Int = 0
 
         init {
             this.card.setOnClickListener {
                 val intent = Intent(item.context, FilmInfo::class.java)
+                intent.putExtra("id", id)
                 item.context.startActivity(intent)
             }
         }
@@ -35,16 +37,12 @@ class PremierFilmsAdapter(val context: Context, val film: Film): RecyclerView.Ad
     }
 
     override fun onBindViewHolder(holder: PremierFilmHolder, position: Int) {
-        Glide.with(context).load(film.data[position].image_url_preview).into(holder.filmImage)
-        holder.filmName.setText(film.data[position].film_name_ru)
+        Glide.with(context).load(film.items[position].posterUrlPreview).into(holder.filmImage)
+        holder.filmName.setText(film.items[position].nameRu)
+        holder.id = film.items[position].kinopoiskId
     }
 
     override fun getItemCount(): Int {
-        return film.data.size
+        return film.items.size
     }
-//
-//    fun addFilm(film: Film){
-//        film.data.add(film)
-//        notifyDataSetChanged()
-//    }
 }

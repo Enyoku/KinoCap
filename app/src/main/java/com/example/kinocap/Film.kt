@@ -1,23 +1,60 @@
 package com.example.kinocap
 
-data class Film(val total: Int, val data: ArrayList<film_info>)
+import com.google.gson.annotations.SerializedName
+
+data class Film(val total: Int, val items: ArrayList<film_info>)
 //data class data_film(val film_id: Int, val film_name: String, val image_url: String)
 
 
-data class film_info(val film_id: Int, val film_name_ru: String,
-                     val film_name_en: String, val year: Int, val image_url: String,
-                     val image_url_preview: String, val country: ArrayList<country>,
-                     val genres: ArrayList<genres_req>, val duration: Int,
-                     val premiereRU: String)
+data class film_info(@SerializedName("kinopoiskId") val kinopoiskId: Int,
+                     @SerializedName("nameRu")val nameRu: String,
+                     @SerializedName("nameEn")val nameEn: String,
+                     @SerializedName("year")val year: Int,
+                     @SerializedName("posterUrl")val posterUrl: String,
+                     @SerializedName("posterUrlPreview")val posterUrlPreview: String,
+                     @SerializedName("countries")val countries: ArrayList<countries>,
+                     @SerializedName("genres")val genres: ArrayList<genres>,
+                     @SerializedName("duration")val duration: Int,
+                     @SerializedName("premiereRu")val premiereRU: String)
 
-data class country(val country_name: String)
-data class genres_req(val genre_name: String)
+data class countries(@SerializedName("country")val country: String)
+data class genres(@SerializedName("genre")val genre: String)
+
+data class FilmTop(@SerializedName("pagesCount")val pagesCount: Int,
+                   @SerializedName("films") val films: ArrayList<top_films>
+)
+data class top_films(@SerializedName("filmId") val filmId: Int,
+                     @SerializedName("nameRu") val nameRu: String,
+                     @SerializedName("nameEn") val nameEn: String,
+                     @SerializedName("posterUrlPreview") val posterUrlPreview: String)
 
 
 data class film_keyword(val keyword: String, val pagesCount: Int, val films: ArrayList<film_keyword_info>)
-data class film_keyword_info(val filmId: Int, val nameRu: String, val nameEn: String,
-                             val type: String, val year: String, val description : String,
-                             val filmLength: String, val countries: ArrayList<country>,
-                             val genres: ArrayList<genres_req>, val rating: String,
-                             val ratingVoteCount: Int, val posterUrl: String,
-                             val posterUrlPreview: String)
+
+data class film_keyword_info(@SerializedName("kinopoiskId") val kinopoiskId: Int,
+                             @SerializedName("nameRu") val nameRu: String,
+                             @SerializedName("nameEn") val nameEn: String,
+                             @SerializedName("type") val type: String,
+                             @SerializedName("year") val year: String,
+                             @SerializedName("description") val description : String,
+                             @SerializedName("filmLength") val filmLength: String,
+                             @SerializedName("countries") val countries: ArrayList<countries>,
+                             @SerializedName("genres") val genres: ArrayList<genres>,
+                             @SerializedName("kinopoiskId") val rating: String,
+                             @SerializedName("kinopoiskId") val ratingVoteCount: Int,
+                             @SerializedName("posterUrl") val posterUrl: String,
+                             @SerializedName("posterUrlPreview") val posterUrlPreview: String)
+
+data class film_day_info(@SerializedName("kinopoiskId") val kinopoiskId: Int,
+                         @SerializedName("nameRu") val nameRu: String,
+                         @SerializedName("nameEn") val nameEn: String,
+                         @SerializedName("type") val type: String,
+                         @SerializedName("year") val year: Int,
+                         @SerializedName("description") val description : String,
+                         @SerializedName("filmLength") val filmLength: Int,
+                         @SerializedName("countries") val countries: ArrayList<countries>,
+                         @SerializedName("genres") val genres: ArrayList<genres>,
+                         @SerializedName("ratingKinopoisk") val ratingKinopoisk: Float,
+                         @SerializedName("reviewsCount") val reviewsCount: Int,
+                         @SerializedName("posterUrl") val posterUrl: String,
+                         @SerializedName("posterUrlPreview") val posterUrlPreview: String)

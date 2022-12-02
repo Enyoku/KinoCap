@@ -9,6 +9,8 @@
     <string name="premiere">Premiere</string>
     <string name="top_250_films">Top 250 films</string>
     <string name="choose_a_genre">Choose a genre</string>
+    <string name="genres">Genres</string>
+    <string name="country">Country</string>
     <string name="anime">Anime</string>
     <string name="action">Action</string>
     <string name="war">War Films</string>

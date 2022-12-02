@@ -3,7 +3,7 @@ package com.example.kinocap
 import android.view.View
 
 data class Genre(val id: Int, val title: String, val image_id: Int)
-class Genres(val root : View)  {
+class Genres_category(val root : View)  {
     val list = arrayListOf(Genre(1, "${root.context.getString(R.string.anime)}", R.drawable.anime_genre),
         Genre(2, "${root.context.getString(R.string.action)}", R.drawable.action_genre),
         Genre(3, "${root.context.getString(R.string.war)}", R.drawable.war_genre),

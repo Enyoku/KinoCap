@@ -11,17 +11,20 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.kinocap.Film
 import com.example.kinocap.FilmInfo
+import com.example.kinocap.FilmTop
 import com.example.kinocap.R
 
-class TopFilmsAdapter(val context: Context, val film: Film): RecyclerView.Adapter<TopFilmsAdapter.TopFilmsHolder>() {
+class TopFilmsAdapter(val context: Context, val film: FilmTop): RecyclerView.Adapter<TopFilmsAdapter.TopFilmsHolder>() {
     class TopFilmsHolder(item: View): RecyclerView.ViewHolder(item) {
         val card: CardView = item.findViewById(R.id.filmCard)
         val filmImage: ImageView = item.findViewById(R.id.filmImage)
         val filmName: TextView = item.findViewById(R.id.filmName)
+        var id : Int = 0
 
         init {
             this.card.setOnClickListener {
                 val intent = Intent(item.context, FilmInfo::class.java)
+                intent.putExtra("id", id)
                 item.context.startActivity(intent)
             }
         }
@@ -35,16 +38,12 @@ class TopFilmsAdapter(val context: Context, val film: Film): RecyclerView.Adapte
     }
 
     override fun onBindViewHolder(holder: TopFilmsHolder, position: Int) {
-        Glide.with(context).load(film.data[position].image_url_preview).into(holder.filmImage)
-        holder.filmName.setText(film.data[position].film_name_ru)
+        Glide.with(context).load(film.films[position].posterUrlPreview).into(holder.filmImage)
+        holder.filmName.setText(film.films[position].nameRu)
+        holder.id = film.films[position].filmId
     }
 
     override fun getItemCount(): Int {
-        return film.data.size
+        return film.films.size
     }
-
-//    fun addFilm(film: Film){
-//        filmList.add(film)
-//        notifyDataSetChanged()
-//    }
 }
