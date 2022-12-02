@@ -19,10 +19,12 @@ class GenreAdapter(val context: Context, val list: ArrayList<Genre>): RecyclerVi
         val card: CardView = item.findViewById(R.id.genreCard)
         val image: ImageView = item.findViewById(R.id.genreImage)
         val textView: TextView = item.findViewById(R.id.genreText)
+        var genreId: Int = 0
 
         init {
             this.card.setOnClickListener {
                 val intent = Intent(item.context, ListFilmsByGenreActivity::class.java)
+                intent.putExtra("genreId", genreId)
                 item.context.startActivity(intent)
             }
         }
@@ -37,6 +39,7 @@ class GenreAdapter(val context: Context, val list: ArrayList<Genre>): RecyclerVi
     override fun onBindViewHolder(holder: VH, position: Int) {
         holder.image.setImageResource(list[position].image_id)
         holder.textView.setText(list[position].title)
+        holder.genreId = list[position].genreId
     }
 
     override fun getItemCount(): Int {

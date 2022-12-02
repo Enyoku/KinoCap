@@ -22,10 +22,11 @@ class ListFilmsByGenreActivity : AppCompatActivity() {
         binding = ActivityListFilmsByGenreBinding.inflate(layoutInflater)
         setContentView(binding.root)
         val rcFilmsList: RecyclerView = binding.rcListFilmsByGenre
+        val genreId = getIntent().extras?.getInt("genreId")
 
         val films = MyRetrofit().getRetrofit()
         val api_ret = films.create(Api::class.java)
-        val films_call: retrofit2.Call<Film> = api_ret.getFilmListByGenre(arrayListOf(2))
+        val films_call: retrofit2.Call<Film> = api_ret.getFilmListByGenre(arrayListOf(genreId!!.toInt()))
         films_call.enqueue(object : retrofit2.Callback<Film> {
             override fun onResponse(call: Call<Film>, response: Response<Film>) {
                 if (response.isSuccessful){
