@@ -13,20 +13,12 @@ interface Api {
     fun getPremieres(@Query("year") year: Int, @Query("month") month: String):Call<Film>
 
     @Headers("X-API-KEY: 0da2b04f-8117-4677-884a-8f2cc8ee1330", "Content-Type: application/json")
-    @GET("/api/v2.2/films/")
-    fun getFilm(@Query("id") id: Int):Call<film_day_info>
-
-    @Headers("X-API-KEY: 0da2b04f-8117-4677-884a-8f2cc8ee1330", "Content-Type: application/json")
-    @GET("/api/v2.1/films/search-by-keyword")
-    fun getFilmByKeyword(@Query("keyword") keyword: String):Call<film_keyword>
-
-    @Headers("X-API-KEY: 0da2b04f-8117-4677-884a-8f2cc8ee1330", "Content-Type: application/json")
     @GET("/api/v2.2/films/top")
     fun getTop250Films(@Query("page") page: Int = 4):Call<FilmTop>
 
     @Headers("X-API-KEY: 0da2b04f-8117-4677-884a-8f2cc8ee1330", "Content-Type: application/json")
     @GET("/api/v2.2/films")
-    fun getFilmListByGenre(@Query("genres") genres: ArrayList<Int>):Call<Film>
+    fun getFilmListByGenre(@Query("genres") genres: ArrayList<Int>, @Query("page") page: Int = 4):Call<Film>
 
     @Headers("X-API-KEY: 0da2b04f-8117-4677-884a-8f2cc8ee1330", "Content-Type: application/json")
     @GET("/api/v2.2/films/{id}")

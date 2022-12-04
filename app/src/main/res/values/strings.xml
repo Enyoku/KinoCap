@@ -23,4 +23,5 @@
     <string name="thriller">Thriller</string>
     <string name="horror">Horror</string>
     <string name="fiction">Fiction</string>
+    <string name="choose_film">Выберите фильм</string>
 </resources>

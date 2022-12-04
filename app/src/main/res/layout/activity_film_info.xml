@@ -23,6 +23,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
         android:text="TextView"
+        android:textColor="@color/light_black"
         app:layout_constraintBottom_toBottomOf="@+id/imageView2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/imageView2"
@@ -35,6 +36,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="10dp"
         android:text="Genres:"
+        android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/filmTitleEn" />
 
@@ -44,6 +46,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:text="Country:"
+        android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.044"
         app:layout_constraintStart_toStartOf="parent"
@@ -56,6 +59,7 @@
         android:layout_marginTop="8dp"
         android:gravity="center"
         android:text="TextView"
+        android:textColor="@color/black"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="@+id/filmImg"
         app:layout_constraintStart_toStartOf="@+id/filmImg"
@@ -66,6 +70,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TextView"
+        android:textColor="@color/light_black"
         android:textSize="12sp"
         app:layout_constraintBottom_toBottomOf="@+id/genreTextInfo"
         app:layout_constraintStart_toEndOf="@+id/genreTextInfo"
@@ -77,6 +82,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TextView"
+        android:textColor="@color/light_black"
         android:textSize="12sp"
         app:layout_constraintBottom_toBottomOf="@+id/countryTextInfo"
         app:layout_constraintStart_toEndOf="@+id/countryTextInfo"
@@ -89,6 +95,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:text="TextView"
+        android:textColor="@color/light_black"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="@+id/filmTitleRu"
         app:layout_constraintHorizontal_bias="0.529"
@@ -104,7 +111,8 @@
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="8dp"
         android:text="TextView"
-        android:textSize="20sp"
+        android:textColor="@color/black"
+        android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.483"
@@ -112,13 +120,14 @@
         app:layout_constraintTop_toBottomOf="@+id/filmCountry"
         app:layout_constraintVertical_bias="0.0" />
 
-    <Button
+    <ImageButton
         android:id="@+id/goBackButton"
         android:layout_width="48dp"
         android:layout_height="48dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:text="B"
+        android:background="#00FFFFFF"
+        android:src="@drawable/go_back"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

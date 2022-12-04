@@ -6,23 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".ui.home.HomeFragment">
 
-    <EditText
-        android:id="@+id/searchField"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="16dp"
-        android:ems="10"
-        android:hint="@string/home_search_field_hint"
-        android:inputType="textPersonName"
-        android:layerType="software"
-        android:singleLine="false"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/imageButton"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.027" />
-
     <ImageView
         android:id="@+id/imFilmOfTheDay"
         android:layout_width="101dp"
@@ -38,34 +21,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.35" />
+        app:layout_constraintGuide_percent="0.32" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/top_films_line"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.65" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/premier_line"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_begin="72dp" />
-
-    <TextView
-        android:id="@+id/premierFilmsHeader"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:text="@string/premiere"
-        android:textColor="@color/black"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.04"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/premier_line" />
+        app:layout_constraintGuide_percent="0.64" />
 
     <TextView
         android:id="@+id/filmOfTheDayHeader"
@@ -100,6 +63,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="36dp"
         android:text="TextView"
+        android:textColor="@color/light_black"
         app:layout_constraintStart_toEndOf="@+id/imFilmOfTheDay"
         app:layout_constraintTop_toTopOf="@+id/film_of_the_day_line" />
 
@@ -112,6 +76,7 @@
         android:inputType="number|numberDecimal"
         android:numeric="integer|decimal"
         android:text="TextView"
+        android:textColor="@color/light_black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/film_of_the_day_line" />
 
@@ -121,6 +86,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
         android:text="TextView"
+        android:textColor="@color/light_black"
         app:layout_constraintBottom_toTopOf="@+id/filmOfTheDayDescription"
         app:layout_constraintEnd_toEndOf="@+id/filmOfTheDayScore"
         app:layout_constraintHorizontal_bias="0.0"
@@ -147,6 +113,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="32dp"
         android:text="TextView"
+        android:textColor="@color/black"
         app:layout_constraintBottom_toTopOf="@+id/top_films_line"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -154,37 +121,39 @@
         app:layout_constraintTop_toBottomOf="@+id/filmOfTheDayName"
         app:layout_constraintVertical_bias="0.0" />
 
-    <ImageButton
-        android:id="@+id/imageButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
-        android:background="?android:selectableItemBackground"
-        android:src="@drawable/send_btn"
-        app:layout_constraintBottom_toTopOf="@+id/premier_line"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rcViewPremiere"
         android:layout_width="0dp"
-        android:layout_height="155dp"
+        android:layout_height="170dp"
         android:layout_marginStart="25dp"
-        android:orientation="horizontal"
+        android:layout_marginTop="8dp"
         android:clipToPadding="true"
+        android:orientation="horizontal"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toTopOf="@+id/film_of_the_day_line"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/premierFilmsHeader" />
+        app:layout_constraintTop_toBottomOf="@+id/premierFilmsHeader"
+        app:layout_constraintVertical_bias="0.018" />
+
+    <TextView
+        android:id="@+id/premierFilmsHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/premiere"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.046"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rcViewTop250Films"
         android:layout_width="0dp"
-        android:layout_height="155dp"
+        android:layout_height="170dp"
         android:layout_marginStart="25dp"
         android:layout_marginTop="8dp"
         android:clipToPadding="true"

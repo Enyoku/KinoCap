@@ -9,7 +9,8 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rcListFilmsByGenre"
         android:layout_width="0dp"
-        android:layout_height="690dp"
+        android:layout_height="680dp"
+        android:layout_marginStart="18dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -17,24 +18,29 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0" />
 
-    <Button
-        android:id="@+id/goCategoryBtn"
-        android:layout_width="45dp"
-        android:layout_height="45dp"
-        android:text=""
-        app:layout_constraintBottom_toTopOf="@+id/rcListFilmsByGenre"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <TextView
         android:id="@+id/genreListName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
-        app:layout_constraintBottom_toBottomOf="@+id/goCategoryBtn"
+        android:layout_marginTop="16dp"
+        android:text="@string/choose_film"
+        android:textColor="@color/black"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.045"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/goCategoryBtn"
-        app:layout_constraintTop_toTopOf="@+id/goCategoryBtn"
-        app:layout_constraintVertical_bias="0.653" />
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/goCategoryBtn"
+        android:layout_width="40dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="10dp"
+        android:background="#00FFFFFF"
+        app:layout_constraintBottom_toTopOf="@+id/rcListFilmsByGenre"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/go_back" />
 </androidx.constraintlayout.widget.ConstraintLayout>
