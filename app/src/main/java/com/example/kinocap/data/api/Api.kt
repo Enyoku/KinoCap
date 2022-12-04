@@ -1,7 +1,9 @@
-package com.example.kinocap
+package com.example.kinocap.data.api
 
+import com.example.kinocap.Film
+import com.example.kinocap.FilmTop
+import com.example.kinocap.film_day_info
 import retrofit2.Call
-import retrofit2.http.Body
 import retrofit2.http.GET
 import retrofit2.http.Headers
 import retrofit2.http.Path

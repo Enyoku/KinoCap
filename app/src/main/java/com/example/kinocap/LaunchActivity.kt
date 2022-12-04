@@ -19,26 +19,6 @@ class LaunchActivity : AppCompatActivity() {
         val timer = object: CountDownTimer(3000, 1000){
 
             override fun onTick(p0: Long) {
-//
-//                val log = MyRetrofit().getRetrofit()
-//                val getApi = log.create(Api::class.java)
-//                val hashMap: HashMap<String, String> = HashMap<String,String>()
-//                val log_call:retrofit2.Call<Film> = getApi.getPremieres(hashMap)
-//                val homeFragment: Fragment = HomeFragment()
-//
-//                log_call.enqueue(object: retrofit2.Callback<Film> {
-//                    override fun onResponse(call: Call<Film>, response: Response<Film>) {
-//                        if (response.isSuccessful){
-//                            val intent = Intent(this@LaunchActivity, MainActivity::class.java)
-//
-//                            startActivity(intent)
-//                        }
-//                    }
-
-//                    override fun onFailure(call: Call<Film>, t: Throwable) {
-//                        Toast.makeText(this@LaunchActivity, t.message, Toast.LENGTH_SHORT).show()
-//                    }
-//                })
             }
 
             override fun onFinish() {

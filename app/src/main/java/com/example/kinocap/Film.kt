@@ -3,8 +3,6 @@ package com.example.kinocap
 import com.google.gson.annotations.SerializedName
 
 data class Film(val total: Int, val items: ArrayList<film_info>)
-//data class data_film(val film_id: Int, val film_name: String, val image_url: String)
-
 
 data class film_info(@SerializedName("kinopoiskId") val kinopoiskId: Int,
                      @SerializedName("nameRu")val nameRu: String,
@@ -27,23 +25,6 @@ data class top_films(@SerializedName("filmId") val filmId: Int,
                      @SerializedName("nameRu") val nameRu: String,
                      @SerializedName("nameEn") val nameEn: String,
                      @SerializedName("posterUrlPreview") val posterUrlPreview: String)
-
-
-data class film_keyword(val keyword: String, val pagesCount: Int, val films: ArrayList<film_keyword_info>)
-
-data class film_keyword_info(@SerializedName("kinopoiskId") val kinopoiskId: Int,
-                             @SerializedName("nameRu") val nameRu: String,
-                             @SerializedName("nameEn") val nameEn: String,
-                             @SerializedName("type") val type: String,
-                             @SerializedName("year") val year: String,
-                             @SerializedName("description") val description : String,
-                             @SerializedName("filmLength") val filmLength: String,
-                             @SerializedName("countries") val countries: ArrayList<countries>,
-                             @SerializedName("genres") val genres: ArrayList<genres>,
-                             @SerializedName("kinopoiskId") val rating: String,
-                             @SerializedName("kinopoiskId") val ratingVoteCount: Int,
-                             @SerializedName("posterUrl") val posterUrl: String,
-                             @SerializedName("posterUrlPreview") val posterUrlPreview: String)
 
 data class film_day_info(@SerializedName("kinopoiskId") val kinopoiskId: Int,
                          @SerializedName("nameRu") val nameRu: String,

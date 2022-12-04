@@ -6,6 +6,8 @@ import android.util.Log
 import android.widget.ImageView
 import android.widget.Toast
 import com.bumptech.glide.Glide
+import com.example.kinocap.data.api.Api
+import com.example.kinocap.data.api.MyRetrofit
 import com.example.kinocap.databinding.ActivityFilmInfoBinding
 import retrofit2.Call
 import retrofit2.Response
@@ -53,12 +55,10 @@ class FilmInfo : AppCompatActivity() {
                     }
                 }
             }
-
             override fun onFailure(call: Call<film_day_info>, t: Throwable) {
                 Toast.makeText(this@FilmInfo, t.message, Toast.LENGTH_SHORT).show()
             }
         })
-
         binding.goBackButton.setOnClickListener {
             finish()
         }

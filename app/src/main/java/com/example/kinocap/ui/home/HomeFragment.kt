@@ -5,15 +5,15 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.EditText
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.kinocap.*
+import com.example.kinocap.data.api.Api
+import com.example.kinocap.data.api.MyRetrofit
 import com.example.kinocap.databinding.FragmentHomeBinding
 import retrofit2.Call
 import retrofit2.Response
@@ -21,10 +21,6 @@ import retrofit2.Response
 class HomeFragment : Fragment() {
 
     private var _binding: FragmentHomeBinding? = null
-//    private val adapterTopFilms = TopFilmsAdapter()
-
-    // This property is only valid between onCreateView and
-    // onDestroyView.
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -32,8 +28,6 @@ class HomeFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val homeViewModel =
-            ViewModelProvider(this).get(HomeViewModel::class.java)
 
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root: View = binding.root
@@ -48,13 +42,11 @@ class HomeFragment : Fragment() {
         films_call_premiere.enqueue(object : retrofit2.Callback<Film> {
             override fun onResponse(call: Call<Film>, response: Response<Film>) {
                 if (response.isSuccessful){
-//                    Toast.makeText(requireContext(), response.body().toString(), Toast.LENGTH_LONG).show()
                     rcViewPremier.adapter =
                         response.body()?.let {PremierFilmsAdapter(requireContext(), it)}
                     Log.d("It",response.body().toString())
                 }
             }
-
             override fun onFailure(call: Call<Film>, t: Throwable) {
                 Toast.makeText(this@HomeFragment.context, t.message, Toast.LENGTH_SHORT).show()
             }
@@ -69,10 +61,8 @@ class HomeFragment : Fragment() {
                 if (response.isSuccessful){
                     rcViewTop250Films.adapter =
                         response.body()?.let {TopFilmsAdapter(requireContext(), it)}
-                    Log.d("It","just work")
             }
         }
-
             override fun onFailure(call: Call<FilmTop>, t: Throwable) {
                 Toast.makeText(this@HomeFragment.context, t.message, Toast.LENGTH_SHORT).show()
             }
@@ -98,13 +88,10 @@ class HomeFragment : Fragment() {
                     }
                 }
             }
-
             override fun onFailure(call: Call<film_day_info>, t: Throwable) {
                 Toast.makeText(this@HomeFragment.context, t.message, Toast.LENGTH_SHORT).show()
             }
         })
-
-
         binding.apply {
             rcViewPremiere.layoutManager = LinearLayoutManager(this@HomeFragment.context,
                 LinearLayoutManager.HORIZONTAL,
@@ -116,7 +103,6 @@ class HomeFragment : Fragment() {
         }
         return root
     }
-
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null

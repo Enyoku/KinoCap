@@ -9,7 +9,6 @@ import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.kinocap.Film
 import com.example.kinocap.FilmInfo
 import com.example.kinocap.FilmTop
 import com.example.kinocap.R

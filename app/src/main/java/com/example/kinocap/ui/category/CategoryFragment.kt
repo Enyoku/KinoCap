@@ -15,9 +15,6 @@ import com.example.kinocap.databinding.FragmentCategoryBinding
 class CategoryFragment : Fragment() {
 
     private var _binding: FragmentCategoryBinding? = null
-
-    // This property is only valid between onCreateView and
-    // onDestroyView.
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -25,8 +22,6 @@ class CategoryFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val dashboardViewModel =
-            ViewModelProvider(this).get(CategoryViewModel::class.java)
 
         _binding = FragmentCategoryBinding.inflate(inflater, container, false)
         val root: View = binding.root
@@ -44,6 +39,4 @@ class CategoryFragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
-
-
 }
