@@ -17,14 +17,4 @@
         android:label="@string/title_category"
         tools:layout="@layout/fragment_category" />
 
-    <fragment
-        android:id="@+id/navigation_favorite"
-        android:name="com.example.kinocap.ui.favorite.FavoriteFragment"
-        android:label="@string/title_favorite"
-        tools:layout="@layout/fragment_favorite" />
-    <fragment
-        android:id="@+id/navigation_user"
-        android:name="com.example.kinocap.ui.user.UserFragment"
-        android:label="fragment_user"
-        tools:layout="@layout/fragment_user" />
 </navigation>

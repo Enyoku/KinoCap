@@ -17,7 +17,6 @@ class FilmInfo : AppCompatActivity() {
         binding = ActivityFilmInfoBinding.inflate(layoutInflater)
         setContentView(binding.root)
         val film_id = getIntent().extras?.getInt("id")
-        Toast.makeText(this@FilmInfo, film_id.toString(), Toast.LENGTH_SHORT).show()
         val filmImg: ImageView = findViewById(R.id.filmImg)
 
         val film = MyRetrofit().getRetrofit()
